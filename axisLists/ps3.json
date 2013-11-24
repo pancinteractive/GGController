@@ -1,0 +1,13 @@
+{
+	"name":"PLAYSTATION(R)3 Controller",
+	"noise":0.15,
+	"axis":
+	{
+		"leftX":1,
+		"leftY":2,
+		"leftTrigger":13,
+		"rightX":3,
+		"rightY":4,
+		"rightTrigger":14,
+	}
+}

@@ -1,0 +1,13 @@
+{
+	"name":"",
+	"noise":0.15,
+	"axis":
+	{
+		"leftX":0,
+		"leftY":0,
+		"leftTrigger":0,
+		"rightX":0,
+		"rightY":0,
+		"rightTrigger":0,
+	}
+}

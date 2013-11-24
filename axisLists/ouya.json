@@ -1,0 +1,13 @@
+{
+	"name":"OUYA Game Controller",
+	"noise":0.15,
+	"axis":
+	{
+		"leftX":1,
+		"leftY":2,
+		"leftTrigger":3,
+		"rightX":4,
+		"rightY":5,
+		"rightTrigger":6,
+	}
+}
