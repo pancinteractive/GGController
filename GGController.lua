@@ -144,14 +144,15 @@ end
 
 --- Gets the current axis list. Used internally.
 -- @return The list.
-function GGController:getAxisList()
-	return self.axisList or {}
+function GGController:getAxisList()	
+	self.axisList = self.axisList or {}
+	return self.axisList.axis or {}
 end
 
 --- Gets the name of an axis from its index. Used internally.
 -- @return The name of the axis.
 function GGController:getAxisName( index )
-	for k, v in pairs( self.axisList.axis ) do
+	for k, v in pairs( self:getAxisList() ) do
 		if v == index then
 			return k
 		end
@@ -164,7 +165,7 @@ end
 function GGController:loadMap( name, baseDir )
 
 	local path = system.pathForFile( name, baseDir or system.ResourceDirectory )
-
+	print( path )
 	local file = io.open( path, "r" )
 	
 	if file then
@@ -209,6 +210,7 @@ end
 --- Sets the current mapped keys for this controller.
 -- @param keys A table containing mappings of hardware keys to names.
 function GGController:setMappedKeys( keys )
+	self.map = self.map or {}
 	self.map.keys = keys
 	for k, v in pairs( self.map.keys ) do
 		self:setPreviousKeyState( k, GGController.KeyState.Released )
@@ -219,6 +221,7 @@ end
 --- Gets the current mapped keys. Used internally.
 -- @return The mapped keys.
 function GGController:getMappedKeys()
+	self.map = self.map or {}
 	return self.map.keys or {}
 end
 
@@ -249,6 +252,7 @@ end
 -- @param key The name of the hardware key.
 -- @return True if the key is mapped, false otherwise.
 function GGController:isKeyMapped( key )
+	self.map.keys = self.map.keys or {}
 	return self.map.keys[ key ] ~= nil
 end
 
@@ -371,6 +375,8 @@ function GGController:axis( event )
 	local axisList = self:getAxisList()
 
 	if axisList then
+
+		axisList.noise = axisList.noise or 0 
 
 		local normalizedValue = event.normalizedValue
 
