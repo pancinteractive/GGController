@@ -69,7 +69,7 @@ end
 Runtime:addEventListener( "enterFrame", onUpdate )
 ```
 
-##### Use a listener function to do something on key release.
+##### Use a listener function to do something on key release. Declare non-Runtime listeners before initializing the controller instance.
 ```lua
 local listener = function( event )
 	if event.key == "FIRE" and event.phase == "justReleased" then
@@ -86,4 +86,26 @@ local listener = function( event )
 	end
 end
 Runtime:addEventListener( "controller", listener )
+```
+
+##### Accepted button labels for some different HID devices.
+```lua
+"buttonA"  --A button (O on OUYA, X on PS3)
+"buttonB"  --B Button (A on OUYA, Circle on PS3)
+"buttonX"  --X button (U on OUYA, Square on PS3)
+"buttonY"  --Y button (Y on OUYA, Triangle on PS3)
+"up"  --dPad Up
+"down"  --dPad Down
+"left"  --dPad Left
+"right"  --dPad Right
+"buttonSelect"  --Select/Back Button (not used on OUYA)
+"buttonStart"  --Start/Home Button (not used on OUYA)
+"buttonMode"  --Power On/Off button
+"leftShoulderButton1"  --Top Left button on the front of the controller, sometimes called L1
+"rightShoulderButton1"  --Top Right button on the front of the controller, sometimes called R1
+"leftShoulderButton2"  --Bottom Left button on the front of the controller, sometimes called L2
+"rightShoulderButton2"  --Bottom Right button on the front of the controller, sometimes called R2
+"leftJoyStickButton"  --pressing down on the left Joystick Button
+"rightJoystickButton"  --pressing down on the right Joystick button
+
 ```
