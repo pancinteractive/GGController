@@ -88,7 +88,8 @@ end
 Runtime:addEventListener( "controller", listener )
 ```
 
-##### Accepted button labels for some different HID devices.
+##### Accepted button labels for some different HID devices, taken from the Corona HID blogpost found here:
+http://coronalabs.com/blog/2013/08/27/tutorial-introduction-to-game-controllers/
 ```lua
 "buttonA"  --A button (O on OUYA, X on PS3)
 "buttonB"  --B Button (A on OUYA, Circle on PS3)
